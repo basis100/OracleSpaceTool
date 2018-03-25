@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORACLEspace", "ODP WIN32\ORACLEspace.csproj", "{AF71E15E-D50C-450F-9447-970142D85A1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF71E15E-D50C-450F-9447-970142D85A1B}.Debug|x86.ActiveCfg = Debug|x86
+		{AF71E15E-D50C-450F-9447-970142D85A1B}.Debug|x86.Build.0 = Debug|x86
+		{AF71E15E-D50C-450F-9447-970142D85A1B}.Release|x86.ActiveCfg = Release|x86
+		{AF71E15E-D50C-450F-9447-970142D85A1B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

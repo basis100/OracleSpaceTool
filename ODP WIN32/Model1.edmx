@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="myhostsModel.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="myhostsModelStoreContainer">
+          <EntitySet Name="HOSTS" EntityType="myhostsModel.Store.HOSTS" store:Type="Tables" />
+          <EntitySet Name="TABLESPACE" EntityType="myhostsModel.Store.TABLESPACE" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="HOSTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPTION" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="IP" Type="nvarchar" MaxLength="50" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="100" />
+          <Property Name="SID" Type="nvarchar" MaxLength="50" />
+          <Property Name="PORT" Type="nvarchar" MaxLength="50" />
+          <Property Name="STATE" Type="nvarchar" MaxLength="1" />
+          <Property Name="OTHER" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TABLESPACE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HOSTID" Type="integer" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="TOTAL" Type="integer" />
+          <Property Name="USED" Type="integer" />
+          <Property Name="FREE" Type="integer" />
+          <Property Name="PUSER" Type="integer" />
+          <Property Name="PFREE" Type="integer" />
+          <Property Name="AUTOEXTEND" Type="nvarchar" MaxLength="1" />
+          <Property Name="SAVETIME" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="myhostsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="myhostsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HOSTS" EntityType="myhostsModel.HOSTS" />
+          <EntitySet Name="TABLESPACE" EntityType="myhostsModel.TABLESPACE" />
+        </EntityContainer>
+        <EntityType Name="HOSTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DESCRIPTION" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IP" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="USERNAME" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PASSWORD" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PORT" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="STATE" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OTHER" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TABLESPACE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="HOSTID" />
+          <Property Type="String" Name="NAME" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="TOTAL" />
+          <Property Type="Int64" Name="USED" />
+          <Property Type="Int64" Name="FREE" />
+          <Property Type="Int64" Name="PUSER" />
+          <Property Type="Int64" Name="PFREE" />
+          <Property Type="String" Name="AUTOEXTEND" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SAVETIME" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="myhostsModelStoreContainer" CdmEntityContainer="myhostsEntities">
+          <EntitySetMapping Name="HOSTS">
+            <EntityTypeMapping TypeName="myhostsModel.HOSTS">
+              <MappingFragment StoreEntitySet="HOSTS">
+                <ScalarProperty Name="OTHER" ColumnName="OTHER" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="PORT" ColumnName="PORT" />
+                <ScalarProperty Name="SID" ColumnName="SID" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TABLESPACE">
+            <EntityTypeMapping TypeName="myhostsModel.TABLESPACE">
+              <MappingFragment StoreEntitySet="TABLESPACE">
+                <ScalarProperty Name="SAVETIME" ColumnName="SAVETIME" />
+                <ScalarProperty Name="AUTOEXTEND" ColumnName="AUTOEXTEND" />
+                <ScalarProperty Name="PFREE" ColumnName="PFREE" />
+                <ScalarProperty Name="PUSER" ColumnName="PUSER" />
+                <ScalarProperty Name="FREE" ColumnName="FREE" />
+                <ScalarProperty Name="USED" ColumnName="USED" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="HOSTID" ColumnName="HOSTID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="myhostsModel.HOSTS" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7341113281249996" />
+        <EntityTypeShape EntityType="myhostsModel.TABLESPACE" Width="1.5" PointX="2.75" PointY="0.75" Height="2.9251310221354156" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
